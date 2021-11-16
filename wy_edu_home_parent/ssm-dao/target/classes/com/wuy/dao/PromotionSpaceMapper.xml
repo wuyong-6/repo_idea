@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuy.dao.PromotionSpaceMapper">
+
+    <select id="findAllPromotionSpace" resultType="com.wuy.bean.promotion.PromotionSpace">
+        select * from promotion_space
+    </select>
+
+    <insert id="savePromotionSpace">
+        insert into promotion_space values(null,#{name},#{spaceKey},#{createTime},#{updateTime},#{isDel})
+    </insert>
+
+    <update id="updatePromotionSpace">
+        update promotion_space set NAME = #{name},updateTime = #{updateTime}
+        where id = #{id}
+    </update>
+
+    <select id="findPromotionSpaceById" resultType="com.wuy.bean.promotion.PromotionSpace">
+        select id,name from promotion_space where id=#{id}
+    </select>
+</mapper>
